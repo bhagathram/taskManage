@@ -1,0 +1,51 @@
+<br>
+<h3>Registered users<h3>
+
+<div class="row">
+  <div class="col-xs-12">
+    <!--Table-->
+    <table class="table table-hovered table-bordered table-responsive">
+
+      <!--Table head-->
+       <thead >
+        <tr class="active">
+            
+            <th>USERNAME</th>
+
+            <th>GENDER</th>
+            <th>COUNTRY</th>
+
+            <th>EMAIL ADDRESS</th>
+            <th>PHONE</th>
+              <th>Action</th>
+        </tr>
+    </thead>
+      <!--Table head-->
+
+      <!--Table body-->
+      <tbody *ngFor="let Student of taskManageData">
+        <tr>
+           
+            <td class="danger"><b>{{Student.username|titlecase}}</b></td>
+
+        <td class="warning">{{Student.gender}}
+            
+        </td>
+
+        <td class="danger">{{Student.country}}</td>
+
+        <td class="active">{{Student.email}}</td>
+
+        <td class="warning">{{Student.phone}}</td>
+      <td>  
+        <button class="btn btn-primary" (click)="onDelete(Student)">Delete</button>
+       </td> </tr>
+
+    </tbody>
+
+    </table>
+    <!--Table-->
+  </div>
+</div>
+  
+

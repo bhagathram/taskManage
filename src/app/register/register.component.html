@@ -1,0 +1,122 @@
+<div class="row align">
+
+
+	<div class="col-sm-4  ">
+	</div>
+
+
+	<div class="col-sm-4" style="background-color:lightpink;">
+
+
+		<div class="container ">
+
+			<h3>Registration Form</h3>
+
+			<form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="postdata(userForm.value)">
+
+				<div class="form-group">
+					<label for="username" class="cols-sm-1 control-label">Username</label>
+
+					<div class="input-group col-sm-10">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" formControlName="username" placeholder="Enter username" />
+					</div>
+
+					<span *ngIf="userForm.controls['username'].hasError('required') && (userForm.controls['username'].touched || userForm.controls['username'].dirty)"
+						class="alert alert-danger"> <span>field is required </span></span>
+				</div>
+
+
+				<div>
+						<div class="form-group">
+					<label for="username" class="cols-sm-1 control-label">Gender</label>
+					<label class="radio-inline"><input type="radio" value="Male" formControlName="gender">Male</label>
+					<label class="radio-inline"><input type="radio" value="Female" formControlName="gender">Female</label>
+
+				</div>
+				</div>
+				<div class="form-group">
+					<label for="country" class="cols-sm-1 control-label">Country</label>
+
+					<div class="input-group col-sm-10">
+						<select id="alert_type" class="form-control input-medium" formControlName="country" required>
+															<option selected>-select-</option>
+                                                        <option *ngFor="let data of dropData">{{data}}</option>
+                                                        
+                                                    </select>
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					<label for="email" class="cols-sm-2 control-label">Your Email</label>
+
+					<div class="input-group col-sm-10">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" formControlName="email" pattern="^[_a-z0-9]+(.[_a-z0-9]+)@[a-z0-9-]+(.[a-z0-9-]+)(.[a-z]{2,4})$"
+							required placeholder="Enter Email" />
+					</div>
+
+					<span [hidden]="userForm.controls['email'].valid || userForm.controls['email'].untouched"> <span class="alert alert-danger" *ngIf = "userForm.controls['email'].errors && userForm.controls['email'].errors.required"> Email is required!</span>
+					<span class="alert alert-danger" *ngIf="userForm.controls['email'].errors  && userForm.controls['email'].errors.pattern">Email is invalid </span>
+
+					</span>
+				</div>
+
+
+
+				<div class="form-group">
+					<label for="phone" class="cols-sm-2 control-label">Mobile</label>
+
+					<div class="input-group col-sm-10">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" formControlName="phone" pattern="[789][0-9]{9}" placeholder="Enter Mobile" />
+					</div>
+
+
+					<span [hidden]="userForm.controls['phone'].valid || userForm.controls['phone'].untouched"> <span class="alert alert-danger" *ngIf = "userForm.controls['phone'].errors && userForm.controls['phone'].errors.required"> Mobile no is required!</span>
+					<span class="alert alert-danger" *ngIf="userForm.controls['phone'].errors  && userForm.controls['phone'].errors.pattern">Enter valid Mobile number!</span>
+
+					</span>
+
+				</div>
+
+
+				<div class="form-group">
+					<label for="password" class="cols-sm-2 control-label">Password</label>
+
+					<div class="input-group col-sm-10">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" formControlName="password" placeholder="Enter Password" />
+					</div>
+
+				</div>
+
+
+
+				<div class="form-group">
+					<label for="cnfmpassword" class="cols-sm-2 control-label">confirmpassword</label>
+
+					<div class="input-group col-sm-10">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" formControlName="cnfmpassword" placeholder="Enter Password" />
+					</div>
+
+				</div>
+
+
+
+				<div class="form-group ">
+
+
+					<button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">submit</button>
+
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+
+</div>

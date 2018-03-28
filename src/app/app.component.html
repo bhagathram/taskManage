@@ -1,0 +1,28 @@
+
+<div class="row">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >Manage-Tasks</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="this.hideservice.logout" > <h4> <b>{{"Welcome   "+this.hideservice.name}}</b></h4></li>
+      <li *ngIf="this.hideservice.register" (click)="registerClick()"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li *ngIf="this.hideservice.login" (click)="loginClick()"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li *ngIf="this.hideservice.logout" (click)="logoutClick()"><a routerLink="/login"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+<div class="row ">
+  
+ <router-outlet ></router-outlet>
+ </div>
+
+
+  
+
